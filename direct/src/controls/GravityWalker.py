@@ -76,7 +76,9 @@ class GravityWalker(DirectObject.DirectObject):
         assert self.notify.debugStateCall(self)
         if not self.wantDebugIndicator:
             return
-        from pandac.PandaModules import *
+        from panda3d.core import CollideMask, CollisionHandlerEvent, CollisionHandlerFluidPusher, CollisionHandlerGravity, CollisionHandlerHighestEvent, CollisionHandlerPusher, CollisionNode, CollisionRay, CollisionSphere, CollisionTraverser, ConfigVariableBool, Event, Point3, Vec3
+from panda3d.direct import WaitInterval
+
         from direct.interval.IntervalGlobal import *
         from toontown.coghq import MovingPlatform
 

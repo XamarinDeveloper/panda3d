@@ -3,7 +3,7 @@ Defines ProtoPalette tree UI
 """
 import wx
 import os
-from pandac.PandaModules import *
+
 from .PaletteTreeCtrl import *
 
 class UniversalDropTarget(wx.PyDropTarget):

@@ -2,7 +2,8 @@
 Defines Layer UI
 """
 import wx
-from pandac.PandaModules import *
+from panda3d.core import NodePath
+
 
 from . import ObjectGlobals as OG
 

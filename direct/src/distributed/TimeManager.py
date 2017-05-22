@@ -1,5 +1,6 @@
 from direct.showbase.DirectObject import *
-from pandac.PandaModules import *
+from panda3d.core import ConfigVariableDouble, ConfigVariableInt
+
 from direct.task import Task
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal

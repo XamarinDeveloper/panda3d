@@ -7,7 +7,8 @@ zone, remove interest in that zone.
 p.s. A great deal of this code is just code moved from ClientRepository.py.
 """
 
-from pandac.PandaModules import *
+from panda3d.core import ConfigVariableBool, Datagram, Event, Loader
+
 from .MsgTypes import *
 from direct.showbase.PythonUtil import *
 from direct.showbase import DirectObject

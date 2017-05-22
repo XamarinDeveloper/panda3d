@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+
 from direct.distributed.DistributedObjectOV import DistributedObjectOV
 
 class DistributedCameraOV(DistributedObjectOV):

@@ -9,7 +9,8 @@ from wx.lib.embeddedimage import PyEmbeddedImage
 from wx.lib.scrolledpanel import ScrolledPanel
 from wx.lib.agw.cubecolourdialog import *
 from direct.wxwidgets.WxSlider import *
-from pandac.PandaModules import *
+from panda3d.core import BitMask32, NodePath
+
 from . import ObjectGlobals as OG
 from . import AnimGlobals as AG
 
