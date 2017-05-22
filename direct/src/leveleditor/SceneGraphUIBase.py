@@ -2,8 +2,7 @@
 Defines Scene Graph tree UI Base
 """
 import wx
-from panda3d.core import NodePath
-
+from pandac.PandaModules import *
 from .ActionMgr import *
 
 from . import ObjectGlobals as OG

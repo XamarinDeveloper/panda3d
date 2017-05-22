@@ -1,6 +1,4 @@
-from panda3d.core import Connection, Datagram, Event, SocketAddress, SocketUDPOutgoing, URLSpec, UniqueIdAllocator
-from panda3d.direct import DCFile, DCPacker
-
+from pandac.PandaModules import *
 from MsgTypes import *
 from direct.showbase import ShowBase # __builtin__.config
 from direct.task.TaskManagerGlobal import * # taskMgr

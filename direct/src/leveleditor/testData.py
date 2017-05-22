@@ -1,4 +1,4 @@
-from panda3d.core import Point3, VBase3
+from pandac.PandaModules import *
 
 if hasattr(base, 'le'):
     objectMgr = base.le.objectMgr

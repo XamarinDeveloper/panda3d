@@ -6,8 +6,7 @@ import os, time, copy
 
 from direct.task import Task
 from direct.actor.Actor import Actor
-from panda3d.core import Mat4, NodePath
-
+from pandac.PandaModules import *
 from .ActionMgr import *
 from . import ObjectGlobals as OG
 

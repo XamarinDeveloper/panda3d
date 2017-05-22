@@ -2,8 +2,7 @@
 ## import os
 ## from wx.lib.agw import fourwaysplitter as FWS
 
-from panda3d.core import Event, Filename, Geom, Lens, Mat4, NodePath, Vec3
-
+from pandac.PandaModules import *
 from direct.wxwidgets.WxPandaShell import *
 from direct.directtools.DirectSelection import SelectionRay
 

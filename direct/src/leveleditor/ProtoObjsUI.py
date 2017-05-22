@@ -4,6 +4,7 @@ Defines ProtoObjs List UI
 import wx
 import os
 
+from pandac.PandaModules import *
 from .ProtoObjs import *
 
 class ProtoDropTarget(wx.PyDropTarget):

@@ -1,6 +1,5 @@
 
-from panda3d.core import NodePath
-
+from pandac.PandaModules import *
 
 #
 # GridParent.py

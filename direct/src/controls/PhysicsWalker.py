@@ -72,9 +72,7 @@ class PhysicsWalker(DirectObject.DirectObject):
         assert self.debugPrint("\n\nspawnTest()\n")
         if not self.wantDebugIndicator:
             return
-        from panda3d.core import CollideMask, CollisionHandler, CollisionHandlerFloor, CollisionHandlerQueue, CollisionNode, CollisionRay, CollisionSphere, CollisionTraverser, ConfigVariableBool, LRotationf, NodePath, Point3, Quat, Vec3, Vec4
-from panda3d.direct import WaitInterval
-
+        from pandac.PandaModules import *
         from direct.interval.IntervalGlobal import *
         from toontown.coghq import MovingPlatform
 

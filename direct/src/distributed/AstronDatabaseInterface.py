@@ -1,6 +1,4 @@
-from panda3d.core import Datagram
-from panda3d.direct import DCPacker
-
+from pandac.PandaModules import *
 from MsgTypes import *
 from direct.directnotify import DirectNotifyGlobal
 from ConnectionRepository import ConnectionRepository

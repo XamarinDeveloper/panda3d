@@ -1,8 +1,6 @@
 """ServerRepository module: contains the ServerRepository class"""
 
-from panda3d.core import ConfigVariableDouble, Connection, ConnectionListener, ConnectionManager, ConnectionReader, ConnectionWriter, Datagram, DatagramIterator, Filename, NetAddress, NetDatagram, PointerToConnection, QueuedConnectionListener, QueuedConnectionManager, QueuedConnectionReader, UniqueIdAllocator
-from panda3d.direct import DCFile
-
+from pandac.PandaModules import *
 from direct.distributed.MsgTypesCMU import *
 from direct.task import Task
 from direct.directnotify import DirectNotifyGlobal
