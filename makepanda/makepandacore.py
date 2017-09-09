@@ -397,13 +397,13 @@ def CrossCompiling():
     return GetTarget() != GetHost()
 
 def GetCC():
-    if TARGET == 'darwin':
+    if TARGET == 'darwin' or TARGET == 'freebsd':
         return os.environ.get('CC', TOOLCHAIN_PREFIX + 'clang')
     else:
         return os.environ.get('CC', TOOLCHAIN_PREFIX + 'gcc')
 
 def GetCXX():
-    if TARGET == 'darwin':
+    if TARGET == 'darwin' or TARGET == 'freebsd':
         return os.environ.get('CXX', TOOLCHAIN_PREFIX + 'clang++')
     else:
         return os.environ.get('CXX', TOOLCHAIN_PREFIX + 'g++')
@@ -2422,6 +2422,7 @@ def SetupVisualStudioEnviron():
     winsdk_ver = SDK["MSPLATFORM_VERSION"]
     if winsdk_ver.startswith('10.'):
         AddToPathEnv("PATH",    SDK["MSPLATFORM"] + "bin\\" + arch)
+        AddToPathEnv("PATH",    SDK["MSPLATFORM"] + "bin\\" + winsdk_ver + "\\" + arch)
 
         # Windows Kit 10 introduces the "universal CRT".
         inc_dir = SDK["MSPLATFORM"] + "Include\\" + winsdk_ver + "\\"
@@ -3157,11 +3158,29 @@ def TargetAdd(target, dummy=0, opts=[], input=[], dep=[], ipath=None, winrc=None
                 for d in CxxCalcDependencies(fullinput, ipath, []):
                     t.deps[d] = 1
 
+        # If we are linking statically, add the source DLL's dynamic dependencies.
+        if GetLinkAllStatic() and ORIG_EXT[fullinput] == '.lib' and fullinput in TARGET_TABLE:
+            tdep = TARGET_TABLE[fullinput]
+            for y in tdep.inputs:
+                if ORIG_EXT[y] == '.lib':
+                    t.inputs.append(y)
+
+            for opt, _ in LIBNAMES + LIBDIRECTORIES + FRAMEWORKDIRECTORIES:
+                if opt in tdep.opts and opt not in t.opts:
+                    t.opts.append(opt)
+
         if x.endswith(".in"):
             # Mark the _igate.cxx file as a dependency also.
             outbase = os.path.basename(x)[:-3]
             woutc = GetOutputDir()+"/tmp/"+outbase+"_igate.cxx"
             t.deps[woutc] = 1
+
+        if target.endswith(".in"):
+            # Add any .N files.
+            base, ext = os.path.splitext(fullinput)
+            fulln = base + ".N"
+            if os.path.isfile(fulln):
+                t.deps[fulln] = 1
 
     for x in dep:
         fulldep = FindLocation(x, ipath)
